@@ -1,0 +1,37 @@
+# 服务器配置
+Server:
+  RunMode: debug
+  HttpPort: 8000
+  ReadTimeout: 60
+  WriteTimeout: 60
+# 应用配置
+App:
+  DefaultPageSize: 10
+  MaxPageSize: 100
+  LogSavePath: storage/logs
+  LogFileName: app
+  LogFileExt: .log
+  UploadSavePath: storage/uploads # 上传文件的保存目录
+  UploadServerUrl: http://127.0.0.1:8000/static # 上传文件后用于展示的文件服务地址
+  UploadImageMaxSize: 5  # 上传文件所允许的最大空间大小，单位MB
+  UploadImageAllowExts: # 允许的文件后缀
+    - .jpg
+    - .jpeg
+    - .png
+# 数据库配置
+Database:
+  DBType: mysql
+  Username: root
+  Password: heszmysql666
+  Host: 192.168.211.130
+  DBName: blog_service
+  TablePrefix: blog_
+  Charset: utf8
+  ParseTime: True
+  MaxIdleConns: 10
+  MaxOpenConns: 30
+# JWT配置
+JWT:
+  Secret: eddycjy
+  Insuer: blog-service
+  Expire: 7200
