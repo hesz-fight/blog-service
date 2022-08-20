@@ -61,23 +61,28 @@ func setupSetting() error {
 		return err
 	}
 
-	err = setting.ReadSection("Server", &global.ServerSetting)
-	if err != nil {
+	if err = setting.ReadSection("Server", &global.ServerSetting); err != nil {
 		return err
 	}
 
-	err = setting.ReadSection("App", &global.AppSetting)
-	if err != nil {
+	if err = setting.ReadSection("App", &global.AppSetting); err != nil {
 		return err
 	}
 
-	err = setting.ReadSection("Database", &global.DatabaseSetting)
-	if err != nil {
+	if err = setting.ReadSection("Database", &global.DatabaseSetting); err != nil {
+		return err
+	}
+
+	if err = setting.ReadSection("JWT", &global.JWTSetting); err != nil {
+		return err
+	}
+	if err = setting.ReadSection("Email", &global.EmailSetting); err != nil {
 		return err
 	}
 
 	global.ServerSetting.ReadTimeout *= time.Second
 	global.ServerSetting.WriteTimeout *= time.Second
+	global.JWTSetting.Expire *= time.Second
 
 	// fmt.Println(*global.ServerSetting)
 	// fmt.Println(*global.AppSetting)
