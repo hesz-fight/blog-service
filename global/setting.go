@@ -11,6 +11,7 @@ var (
 	AppSetting      *setting.AppSetting
 	DatabaseSetting *setting.DatabaseSetting
 	JWTSetting      *setting.JWTSettingS
+	EmailSetting    *setting.EmailSettingS
 )
 
 // 日志配置对象
